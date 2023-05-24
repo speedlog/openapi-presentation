@@ -1,0 +1,92 @@
+openapi: 3.0.1
+info:
+  title: OpenAPI definition with remote URL refs.
+  version: v1
+servers:
+- url: http://localhost:8080
+  description: Development server
+paths:
+  /api/posts/{id}:
+    get:
+      tags:
+      - post-controller
+      operationId: viewPost
+      parameters:
+        - $ref: "#/components/parameters/PostIdParam"
+      responses:
+        "200":
+          $ref: "#/components/responses/200_withPost"
+    put:
+      tags:
+      - post-controller
+      operationId: updatePost
+      parameters:
+        - $ref: "#/components/parameters/PostIdParam"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: 'post_components.yaml#/EditablePost'
+        required: true
+      responses:
+        "200":
+          $ref: "#/components/responses/200_withoutBody"
+    delete:
+      tags:
+      - post-controller
+      operationId: deletePost
+      parameters:
+        - $ref: "#/components/parameters/PostIdParam"
+      responses:
+        "200":
+          $ref: "#/components/responses/200_withoutBody"
+  /api/posts:
+    post:
+      tags:
+      - post-controller
+      operationId: addPost
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: 'post_components.yaml#/EditablePost'
+        required: true
+      responses:
+        "200":
+          $ref: "#/components/responses/200_withPost"
+components:
+  parameters:
+    PostIdParam:
+      name: id
+      in: path
+      required: true
+      schema:
+        $ref: "#/components/schemas/PostId"
+  schemas:
+    Post:
+      type: object
+      properties:
+        id:
+          $ref: "#/components/schemas/PostId"
+        title:
+          type: string
+        description:
+          type: string
+        creationTime:
+          type: string
+          format: date-time
+        lastUpdateDate:
+          type: string
+          format: date-time
+    PostId:
+      type: string
+      format: uuid
+  responses:
+    200_withoutBody:
+      description: OK
+    200_withPost:
+      description: OK
+      content:
+        'application/json':
+          schema:
+            $ref: '#/components/schemas/Post'

@@ -1,0 +1,104 @@
+openapi: 3.0.1
+info:
+  title: OpenAPI definition
+  version: v0
+servers:
+- url: http://localhost:8080
+  description: Generated server url
+paths:
+  /api/posts/{id}:
+    get:
+      tags:
+      - post-controller
+      operationId: viewPost
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Post'
+    put:
+      tags:
+      - post-controller
+      operationId: updatePost
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EditablePost'
+        required: true
+      responses:
+        "200":
+          description: OK
+    delete:
+      tags:
+      - post-controller
+      operationId: deletePost
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        "200":
+          description: OK
+  /api/posts:
+    post:
+      tags:
+      - post-controller
+      operationId: addPost
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EditablePost'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Post'
+components:
+  schemas:
+    EditablePost:
+      type: object
+      properties:
+        title:
+          type: string
+        description:
+          type: string
+    Post:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        title:
+          type: string
+        description:
+          type: string
+        creationTime:
+          type: string
+          format: date-time
+        lastUpdateDate:
+          type: string
+          format: date-time
