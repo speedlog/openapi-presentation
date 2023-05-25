@@ -1,0 +1,11 @@
+rules:
+  coi-path-or-query-parameters-shoud-not-contain-PESEL:
+    description: Path or query parameters SHOULD NOT contain PESEL
+    severity: warn
+    recommended: true
+    message: "{{property}} path parameter: {{error}}"
+    given: $..parameters[?(@.in == 'path' || @.in == 'query')].name
+    then:
+      function: pattern
+      functionOptions:
+        notMatch: "/.*pesel.*/i"

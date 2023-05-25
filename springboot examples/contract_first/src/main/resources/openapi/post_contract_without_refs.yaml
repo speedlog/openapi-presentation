@@ -31,8 +31,10 @@ paths:
                     format: uuid
                   title:
                     type: string
+                    maxLength: 100
                   description:
                     type: string
+                    maxLength: 2000
                   creationTime:
                     type: string
                     format: date-time
@@ -54,7 +56,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: 'post_components.yaml#/EditablePost'
+              type: object
+              properties:
+                title:
+                  type: string
+                  maxLength: 50
+                description:
+                  type: string
+                  maxLength: 1000
         required: true
       responses:
         "200":
@@ -86,8 +95,10 @@ paths:
               properties:
                 title:
                   type: string
+                  maxLength: 50
                 description:
                   type: string
+                  maxLength: 1000
         required: true
       responses:
         "200":

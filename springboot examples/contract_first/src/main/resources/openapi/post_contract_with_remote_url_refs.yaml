@@ -26,7 +26,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: 'post_components.yaml#/EditablePost'
+              $ref: 'https://raw.githubusercontent.com/speedlog/openapi-presentation/master/springboot%20examples/contract_first/src/main/resources/openapi/post_components.yaml#/EditablePost'
         required: true
       responses:
         "200":
@@ -49,7 +49,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: 'post_components.yaml#/EditablePost'
+              $ref: 'https://raw.githubusercontent.com/speedlog/openapi-presentation/master/springboot%20examples/contract_first/src/main/resources/openapi/post_components.yaml#/EditablePost'
         required: true
       responses:
         "200":

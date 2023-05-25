@@ -1,10 +1,17 @@
+buildscript {
+	ext {
+		springdocVersion = '2.0.2'
+	}
+}
+
 plugins {
 	id 'java'
 	id 'org.springframework.boot' version '3.0.5'
 	id 'io.spring.dependency-management' version '1.1.0'
+	id "org.openapi.generator" version "6.3.0"
 }
 
-group = 'pl.mariusz.wyszomierski.openapi'
+group = 'pl.wyszomierski.mariusz.openapi'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '17'
 
@@ -15,8 +22,42 @@ repositories {
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+	implementation 'org.springframework.data:spring-data-commons'
+	implementation "org.springdoc:springdoc-openapi-starter-webmvc-ui:${springdocVersion}"
+	implementation 'com.google.code.findbugs:jsr305:3.0.2'
+	implementation 'com.fasterxml.jackson.dataformat:jackson-dataformat-yaml'
+	implementation 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310'
+	implementation 'org.openapitools:jackson-databind-nullable:0.2.2'
+	implementation 'org.springframework.boot:spring-boot-starter-validation'
+	implementation 'com.fasterxml.jackson.core:jackson-databind'
 }
 
 tasks.named('test') {
 	useJUnitPlatform()
 }
+
+openApiGenerate {
+	generatorName = "spring"
+	inputSpec = "$rootDir/src/main/resources/openapi/post_contract_with_refs.yaml".toString()
+	outputDir = "$buildDir/generated".toString()
+	apiPackage = "pl.wyszomierski.mariusz.openapi.api"
+	modelPackage = "pl.wyszomierski.mariusz.openapi.model"
+
+	configOptions = [
+			dateLibrary: "java8",
+			useSpringBoot3: "true",
+			interfaceOnly: "true"
+	]
+
+}
+
+sourceSets {
+	main.java.srcDirs += "$buildDir/generated/src/main/java"
+}
+
+compileJava {
+	dependsOn 'openApiGenerate'
+}
+
+//tasks.compileJava.dependsOn { tasks.openApiGenerate }

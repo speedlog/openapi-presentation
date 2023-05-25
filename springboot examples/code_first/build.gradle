@@ -5,7 +5,7 @@ plugins {
 	id 'org.springdoc.openapi-gradle-plugin' version "1.6.0"
 }
 
-group = 'pl.mariusz.wyszomierski.openapi'
+group = 'pl.wyszomierski.mariusz.openapi'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '17'
 
@@ -16,6 +16,7 @@ repositories {
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	implementation 'org.springframework.boot:spring-boot-starter-validation'
 
 	implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.1.0'
 }

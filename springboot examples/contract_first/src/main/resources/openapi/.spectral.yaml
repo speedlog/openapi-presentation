@@ -1,0 +1,7 @@
+extends: [
+	"spectral:oas",
+	"spectral:asyncapi",
+#	"OWASP Top 10/.spectral.json",
+#	"URL Style Guidelines/.spectral.json"
+#   ".coi_spectral.yaml"
+]

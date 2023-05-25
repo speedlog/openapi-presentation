@@ -83,8 +83,12 @@ components:
       type: object
       properties:
         title:
+          maxLength: 100
+          minLength: 0
           type: string
         description:
+          maxLength: 2000
+          minLength: 0
           type: string
     Post:
       type: object

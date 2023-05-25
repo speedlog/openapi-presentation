@@ -3,5 +3,7 @@ EditablePost:
   properties:
     title:
       type: string
+      maxLength: 50
     description:
       type: string
+      maxLength: 1000

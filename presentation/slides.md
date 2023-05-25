@@ -14,7 +14,7 @@ title: Koncentrat OpenAPI
 
 Note: zaczynałem od prowadzenia firmy, która robiła strony internetowe, aplikacje webowe w oparciu o PHP.
 Programista głównie Java, Team lider
-Tata dwóch córeczek
+Tata dwóch córeczek (lvl 1 i lvl 3)
 
 ----
 
@@ -34,16 +34,17 @@ Note: Można robić zdjęcie :-)
 
 ![Rakieta](./rocket.png)
 
-Note: Dziękuję za obecność na mojej prelekcji.
-Jest to pierwsze moje wystąpienie na konferencji, ale mimo to mam nadzieję że nie będzie odstawało od reszty prezentacji.
-Mimo formy zdalnej nadal towarzycy mi lekka trema, więc z góry wybaczcie jeżeli coś przekręcę lub zacznę się jąkać ;)
 
+Note: 
+
+Dziękuję za obecność na mojej prelekcji. Jest to pierwsze moje wystąpienie na konferencji, ale mimo to mam nadzieję że nie będzie odstawało od reszty prezentacji.
+Mimo formy zdalnej nadal towarzycy mi lekka trema, więc z góry wybaczcie jeżeli coś przekręcę lub zacznę się jąkać ;)
 
 Na koniec podzielę się z Wami ile zajęło mi przygotowanie tej prezentacji i materiałów 
 do niej. 
 Prezentacja zostanie tez udostępniona za kilka dni na github o czym bede informował na twiterze i LinkedIn.
 
-Note: źródło obrazka https://commons.wikimedia.org/wiki/File:Cartoon_space_rocket.png#filelinks
+źródło obrazka https://commons.wikimedia.org/wiki/File:Cartoon_space_rocket.png#filelinks
 
 ---
 
@@ -63,7 +64,9 @@ Note: W dużym skrócie o tym jak można dokumentować API usług wystawionych p
 * ~~live coding~~
 * ~~demo~~
 
-Note: Nawet obejrzałem w ramach przogotwać bardzo fajne szkolenie DevSpeakers od Maćka Aniserowicza.
+Note: 
+
+Nawet obejrzałem w ramach przogotwać bardzo fajne szkolenie DevSpeakers od Maćka Aniserowicza.
 I bardzo dobrze - nie będzie demo i live codingu ;)
 Za to jak widzicie prezentacja jest na ciemnym tle. Stwierdziłem, że skoro prelekcja jest prowadzona w trybie zdalnym i nie będzie prezentowana przez projektor to mogę sobie pozwolić na odstępstwo :)
 
@@ -89,7 +92,9 @@ Specyfikacja jest niezależna od technologii aplikacji, która wystawia/konsumuj
 * REST -> OpenAPI 
 * GraphQL-> schema
 
-Note: plik lub zestaw plików zawierających opis endpointów, danych wejściowych i wyjściowych.
+Note: 
+
+plik lub zestaw plików zawierających opis endpointów, danych wejściowych i wyjściowych, walidacji.
 
 ---
 
@@ -99,7 +104,9 @@ Note: plik lub zestaw plików zawierających opis endpointów, danych wejściowy
 * brak konieczności odkrywania API metodą empiryczną
 * zwiększa prawdopodobieństwo właściwej integracji
 
-Note: Warto tutaj zainteresować się testami kontraktowymi. Dwa chyba najbardziej popularne narzędzie to Spring Cloud Contract oraz Packt.
+Note: 
+
+Warto tutaj zainteresować się testami kontraktowymi. Dwa chyba najbardziej popularne narzędzie to Spring Cloud Contract oraz Packt.
 Dzięki agnostyczności od technologii kontrakt może tworzyć zarówno zespół backend/frontend/architekci/analitycy.
 
 ---
@@ -111,6 +118,7 @@ W 2015 roku firma SmartBear przekazała projekt organizacji OpenAPI Initiative.
 W 2017 roku została wydana oficjalna wersja OpenAPI 3.
 
 Note: 
+
 Organizacja OpenAPI Initiative jest złożona ze specjalistów z róznych organizacji Microsoft, IBM, SmartBear, RedHat.
 Swagger obecnie może być kojarzany z zestawem narzędzi wspomagających pracę z OpenAPI.
 Chyba najpopularniejszym narzędziem jest swagger-ui o którym będę wspominał później.
@@ -178,7 +186,7 @@ Format JSON
 
 <img src="./qrcode_question1.png" height="400"/>
 
-t.ly/fEGk
+<a href="https://t.ly/fEGk" target="_blank">t.ly/fEGk</a>
 
 ---
 
@@ -194,6 +202,8 @@ t.ly/fEGk
  ```
  
 <a href="https://github.com/mikefarah/yq" target="_blank">https://github.com/mikefarah/yq</a>
+
+Note: lub opcja w IntelliJ
 
 ----
 
@@ -214,14 +224,6 @@ Note: Instalacja za pomocą npm
 
 * code first
 * contract first
-
-----
-
-## Pytanie do publiczności nr 2
-
-<img src="./qrcode_question2.png" height="400"/>
-
-<a href="https://t.ly/ihP3" target="_blank">https://t.ly/ihP3</a>
 
 ---
 
@@ -368,6 +370,23 @@ GUI wspomagające tworzenie API:
 
 ---
 
+## Pytanie do publiczności nr 2
+
+<img src="./qrcode_question2.png" height="400"/>
+
+<a href="https://t.ly/ihP3" target="_blank">t.ly/ihP3</a>
+
+---
+
+## Przykładowe kontrakty
+
+* https://petstore.swagger.io/
+* https://developer.allegro.pl/swagger.yaml
+* https://developer.spotify.com/_data/documentation/web-api/reference/open-api-schema.yml
+* https://github.com/OAI/OpenAPI-Specification/tree/main/examples
+
+---
+
 ## Dekompozycja kontraktu
 
 * Kontrakt OpenAPI może być złożony z kilku plików
@@ -427,36 +446,200 @@ Dlatego przy tego typu rozwiązaniach najlepiej nie wprowadzać zmian niekompat
 
 * w przypadku kontraktu z referencjami odwołującymi się po zdalnych URL
 https://editor-next.swagger.io/
+* w przypadku kontraktu z referenacjami do plików można użyć opcji IntelliJ (Export Self-Contained Specification)
+
+Note:
+Zawsze warto przejrzeć w jaki sposób plik został scalony i jakie nazwy zostały nadane poszczególnym obiektom.
 
 ----
 
 ## Kompozycja kontraktu - code first
 
 W przypadku podejścia "code first" kompozycja kontraktu na wiele plików nie ma sensu.
-Kompozycją są tutaj po prostu 
+Kompozycją są tutaj po prostu oddzielne pliki Java.
 
 ---
 
+## Narzędzia wokół OpenAPI
+
+* generowanie kodu klienta oraz serwera
+* walidacja poprawności kontraktu
+* walidacja zgodności request/response z kontraktem
+* generowanie dokumentacji
+* generowanie stubów z kontraktów
+* generowane kontraktów z requestów HTTP
+* konwertowanie do różnych formatów
+
+<a href="https://openapi.tools/" target="_blank">https://openapi.tools/</a>
+
+----
+
+## Generowanie kodu
+
+* <a href="https://openapi-generator.tech/" target="_blank">https://openapi-generator.tech/</a>  
+* <a href="https://github.com/swagger-api/swagger-codegen" target="_blank">https://github.com/swagger-api/swagger-codegen</a>
+
+Note:
+Projekty to generatory oparte o szablony (możliwość generowania klienta lub serwera).
+openapi-generator to fork projektu swagger-codegen
+
+----
+
+## Generowanie strony serwerowej Spring Boot 3
+
+```
+openApiGenerate {
+	// opcje pluginu
+	generatorName = "spring"
+	inputSpec = "$rootDir/src/main/resources/openapi/post_contract_with_refs.yaml".toString()
+	
+	...
+	// opcje generatora
+	configOptions = [
+			dateLibrary: "java8",
+			useSpringBoot3: "true"
+	]
+}
+```
+----
+
+## Generowanie strony serwerowej Spring Boot 3
+
+* Opcje pluginu: <a href="https://github.com/OpenAPITools/openapi-generator/blob/master/modules/openapi-generator-gradle-plugin/README.adoc" target="_blank">https://github.com/OpenAPITools/openapi-generator/blob/master/modules/openapi-generator-gradle-plugin/README.adoc</a>
+* Opcje generatora: <a href="https://openapi-generator.tech/docs/generators/spring" target="_blank">https://openapi-generator.tech/docs/generators/spring</a>
+
+Note:
+Wspomnieć o dodanie sourcesSet
+Wspomnieć o zależnościach w maven
+
+----
+
+## Walidacja kontraktu
+
+<a href="https://openapi-generator.tech/docs/generators/spring" target="_blank">https://github.com/stoplightio/spectral</a>
+
+Note: 
+
+Poprzednio wspomniany plugin ma też opcję walidacji kontraktu ze standardem OpenAPI.
+Narzędzie, które pokażę potrafi nieco więcej - potrafi pilnować pewnych ustalonych reguł np. nazwnictwa oraz wskazywać potencjalne błędy bezpieczeństwa.
+
+----
+
+## Walidacja kontraktu
+
+```
+# install spectral tool
+npm install -g @stoplight/spectral-cli
+
+# generate file with rules
+echo 'extends: ["spectral:oas", "spectral:asyncapi"]' > .spectral.yaml
+
+# validate contract
+spectral lint post_contract_with_refs.yaml 
+```
+
+Note:
+Gdzie podpiąć: build lokalny, pipe-line, pre-commit hook.
+
+----
+
+## Walidacja kontraktu
+
+Gotowe zbiory reguł:
+* <a href="https://apistylebook.stoplight.io/docs/" target="_blank">https://apistylebook.stoplight.io/docs/</a>
+* <a href="https://github.com/apisyouwonthate/style-guide" target="_blank">https://github.com/apisyouwonthate/style-guide</a>
+* <a href="https://github.com/adidas/api-guidelines/blob/master/.spectral.yml" target="_blank">https://github.com/adidas/api-guidelines/blob/master/.spectral.yml</a>
+
+Możliwe użycia:
+* <a href="https://github.com/adidas/api-guidelines/blob/master/.spectral.yml" target="_blank">https://meta.stoplight.io/docs/spectral/7895ff1196448-sharing-and-distributing-rulesets</a>
+
+Note:
+
+Można użyć plików lokalnych, zdalnych lub paczek zainstalowanych jako moduł npm.
+
+----
+
+## Walidacja kontraktu - customowa reguła
+
+Numer PESEL nie może znaleźć się w URL (nie może być parametrem PATH lub QUERY)
+
+```
+rules:
+  coi-path-or-query-parameters-shoud-not-contain-PESEL:
+    description: Path or query parameters SHOULD NOT contain PESEL
+    severity: warn
+    recommended: true
+    message: "{{property}} path parameter: {{error}}"
+    given: $..parameters[?(@.in == 'path' || @.in == 'query')].name
+    then:
+      function: pattern
+      functionOptions:
+        notMatch: "/.*pesel.*/i"
+```
+
+----
+
+## Walidacja kontraktu - pipeline
+
+```
+stage('Lint OpenAPI') {
+	def statusCode = sh(script: 'docker run --rm -v $(pwd)/src/main/resources:/tmp stoplight/spectral lint --ruleset /tmp/.spectral.yaml /tmp/srp-micro-pesel-contract.yaml', returnStatus: true)
+	if (statusCode != 0) {
+		currentBuild.result = 'FAILED'
+		step([$class: 'StashNotifier'])
+		error("Walidacja kontraktu zwróciła błędy - sprawdź logi...")
+	}
+}
+```
+
+---
+
+## Github - przykłady i prezentacja
+
+<a href="https://github.com/speedlog/openapi-presentation" target="_blank">https://github.com/speedlog/openapi-presentation</a>
+
+---
+
+# Q & A
+
+---
+
+## Dziękuję i o feedback proszę
+
+<img src="./ankieta_po_prezentacji.png" height="400"/>
+
+<a href="https://t.ly/yNyWg" target="_blank">t.ly/yNyWg</a>
+
+---
+
+# KONIEC :-)
+
+Note:
+Link do prezentacji wyników:
+https://docs.google.com/forms/u/0/?tgif=d
 
 TODO:
-* stopka na każdej stronie z twitter i www
-* push kodu na github
-* examplesy w kontraktach
-* oneOf, anyOf, allOf
-* research - code first i generowanie wspólnych komponentów
-* ankieta satysfakcji
-* zwracanie plików binarnych
-* swagger-ui przy podejściu conctract-first. Obsługa blokady podawania url w nowym swagger-ui.
-* generator z kontraktu
-* openapi tools
-* spectral (lint)
 * Zmiany kompatbyline i niekompatybilne (enum i java) - https://stackoverflow.com/a/55054473
+* examplesy w kontraktach
+* zwracanie plików binarnych
+* oneOf, anyOf, allOf
+* walidacja danych wyjściowych z usługi
+* swagger-ui przy podejściu conctract-first. Obsługa blokady podawania url w nowym swagger-ui.
 * springdoc - głębsze omówienie ciekawszych opcji
 - wyłączenie swagger-ui po co?
 - wskazanie z któryc kontrolerów
+- generowanie wspólnych obiektów
 * dodanie README do projektów Spring Boot
 * dodanie README jak uruchomić prezentację
 ? prezentacja w formie PDF na github
+* do sprawdzenia opcja "export self contained" w IntelliJ w przypadku scalenia kilku kontraktów w jeden. Czy tylko płatna i czy pluginy w IntelliJ i VSC też oferują taką opcję
+* pododawać opisy w kontraktach (również tych generowanych z kodu)
+* pododawać inne kody odpowiedzi (błędów)
+* sprawdzić lintem kontrakty z obu przykładów code/contract first
+* stopka na każdej stronie z twitter i www
+* dystrybucja kontraktu - wspomnieć więcej o tym jak może być dystrybuowany (osobny artefakt)
+* rozbudowa przykładowych aplikacji np. o obsługę błędów walidacji
+* podbic revealmd do 5.5.0 i przetestować prezentację
 
 Narzędzia:
 https://inspector.swagger.io
@@ -465,7 +648,8 @@ https://petstore.swagger.io (swagger ui)
 
 Inne ciekawe linki:
 https://idratherbewriting.com/learnapidoc/openapi_tutorial.html
-
+https://www.postman.com/state-of-api/api-first-strategies/#api-first-strategies
+https://quobix.com/vacuum/
 
 
 
